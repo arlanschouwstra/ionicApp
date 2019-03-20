@@ -1,0 +1,56 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.tabs{
+  max-height: 10%;
+}
+
+.content-margin{
+  right: 0;
+  margin-right: 0;
+}
+.header{
+  background-color: #0054c2;
+}
+.title{
+  text-align: center;
+}
+
+p{
+  color: black;
+}
+
+h2{
+  color: #0054c2;
+}
+
+.badge{
+  color: white;
+  font-size: auto;
+  margin-top: 30%;
+}
+
+.foot{
+  position: fixed;
+  text-align: center;
+  bottom: 8%;
+  left: 0;
+  background-color: rgba(127, 127, 127, 0.3);
+  padding: 5px;
+}
+
+.avatar{
+  background-color: #0054c2;
+  align-items: center;
+  text-align: center;
+  margin-left: 10%;
+  width: 45px;
+  height: 45px;
+  border: 2px solid darkgray;
+}
+
+.bg-image{
+  background-color: #000000 !important;
+}

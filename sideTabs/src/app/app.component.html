@@ -1,0 +1,27 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header class="header">
+        <ion-toolbar>
+          <ion-title>Bug state</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="header"> 
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-badge color="medium" *ngIf="p.title == 'New'" class="badge-margin">{{countNew}}</ion-badge>
+              <ion-badge color="primary" *ngIf="p.title == 'Active'" class="badge-margin">{{countActive}}</ion-badge>
+              <ion-badge color="warning" *ngIf="p.title == 'Resolved'" class="badge-margin">{{countResolved}}</ion-badge>
+              <ion-badge color="danger" *ngIf="p.title == 'Closed'" class="badge-margin">{{countClosed}}</ion-badge>
+              <ion-label>
+              {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main class="header"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,126 @@
+<ion-header class="header">
+    <ion-toolbar color="niceblue">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-searchbar *ngIf="toggled" (ionInput)="onSearch($event)" (ionCancel)="toggle()" showCancelButton="true" class="searchbar">
+      </ion-searchbar>
+  </ion-header>
+
+<ion-content>
+    <ion-tabs >
+
+        <ion-tab-bar slot="bottom" >
+          <ion-tab-button color="currentColor">
+            <ion-icon name="globe" ></ion-icon>
+            <ion-label >Web</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button >
+            <ion-icon name="home" ></ion-icon>
+            <ion-label >Home</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button (click)="toggle()">
+            <ion-icon name="search"></ion-icon>
+            <ion-label >Search</ion-label>
+            
+          </ion-tab-button>
+    
+        </ion-tab-bar>
+      </ion-tabs>
+
+      <div  *ngFor="let bug of result" >
+          <ion-list *ngIf="bug.State == states[3] && bug.Title.toLowerCase().includes(getSearch.toLowerCase())" 
+                    (click)="showContent(bug.Title)">
+              <ion-item>
+                <ion-avatar slot="start" class="avatar"><p class="badge">{{bug.ID}}</p></ion-avatar>
+                <ion-label><h2>{{bug.Title}}</h2>
+                            <p>{{bug.CreatedDate}}</p>
+              </ion-label>
+              </ion-item>
+              <ion-item *ngIf="getHideStatus == false && bug.Title == getTitle" >
+              <ion-card class="card-width">
+                <ion-card-content>
+                  <h2>
+                    <b>Date created: </b>
+                  </h2> 
+                  <p>
+                    {{bug.CreatedDate}}
+                  </p>
+                  
+                  <h2>
+                    <b>Last modified:  </b> 
+                  </h2>
+                    <p>
+                      {{bug.StateChangeDate}}
+                   </p> 
+                   <h2>
+                    <b>State: </b> </h2> 
+                    <p>{{bug.State}}</p>
+                  
+                    <h2>
+                        <b>Reason: </b>
+                    </h2> 
+                        <p>{{bug.Reason}}</p>
+                      <h2>
+                        <b>Reason resolved: </b>
+                      </h2> 
+                        <p>{{bug.ResolvedReason}}</p>
+                       
+                      <h2>
+                        <b>Estimated time: </b> 
+                      </h2> 
+                        <p>{{bug.OriginalEstimate}}</p>
+                     
+                      <h2>
+                        <b>Remaining work: </b>
+                      </h2> 
+                        <p>{{bug.RemainingWork}}</p>
+                      
+                      <h2>
+                        <b>Completed work: </b> 
+                      </h2>
+                        <p>{{bug.CompletedWork}}</p>
+                     
+                      <h2>
+                        <b>Story points: </b>  
+                      </h2>  
+                        <p>{{bug.StoryPoints}}</p>
+                    
+                      <h2>
+                        <b>Priority: </b> 
+                      </h2> 
+                        <p>{{bug.Priority}}</p>
+                     
+                      <h2>
+                        <b>Activity: </b> 
+                      </h2> 
+                       <p>{{bug.Activity}}</p>
+                     
+                      <div>
+                        
+                        <h2>
+                          <b>Repro steps: </b> 
+                        </h2> 
+                         <p [innerHTML]="bug.ReproSteps"></p> 
+                       </div>
+                      <div>
+                        <h2>
+                          <b>History: </b> 
+                        </h2> 
+                          <p [innerHTML]="bug.History" class="content-margin"></p> 
+                         </div>
+                      <div>
+                        <h2>
+                          <b>System info:</b> 
+                        </h2> 
+                         <p [innerHTML]="bug.SystemInfo"></p> 
+                       </div>
+                      </ion-card-content>
+                  </ion-card>
+               </ion-item>
+          </ion-list>  
+    </div> 
+</ion-content>

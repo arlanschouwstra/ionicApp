@@ -1,0 +1,19 @@
+.header{
+    background-color: #0054c2;
+    border:none;   /*Removes all borders*/
+    border-top: 1px solid;   /*Top Border for each menu item*/
+    border-bottom:2px solid;   /*Bottom border for each menu item*/
+    border-color: #666;   /*Sets colors for top and bottom border*/
+    color: white;    /*Text color for each item*/
+  }
+
+.badge-margin{
+    margin: 30px;
+    padding: 10px;
+}
+
+page-app.component{
+  ion-content{
+    background: #0054c2;
+  }
+}
