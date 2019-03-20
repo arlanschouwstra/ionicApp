@@ -1,6 +1,8 @@
 {
   "name": "sideTabs",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "eb341d8b"
 }
